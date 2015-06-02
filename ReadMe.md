@@ -63,6 +63,10 @@ NSLog(@"Could not execute the query.");
 }
 `
 
+# Todo
+
+- there is not so good animation for adding new stuff. will fix soon
+
 # About
 
 Based on tutorial: http://www.appcoda.com/sqlite-database-ios-app-tutorial/

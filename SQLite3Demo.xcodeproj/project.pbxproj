@@ -19,6 +19,7 @@
 		A3624FFD1B1E1ADC00029C36 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3624FFB1B1E1ADC00029C36 /* DBManager.m */; };
 		A3624FFE1B1E1ADC00029C36 /* sampledb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A3624FFC1B1E1ADC00029C36 /* sampledb.sqlite */; };
 		A36250001B1E249000029C36 /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = A3624FFF1B1E249000029C36 /* ReadMe.md */; };
+		A36250021B1E256200029C36 /* PrintScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = A36250011B1E256200029C36 /* PrintScreen.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		A3624FFB1B1E1ADC00029C36 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		A3624FFC1B1E1ADC00029C36 /* sampledb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampledb.sqlite; sourceTree = "<group>"; };
 		A3624FFF1B1E249000029C36 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
+		A36250011B1E256200029C36 /* PrintScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PrintScreen.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				A3624FFF1B1E249000029C36 /* ReadMe.md */,
+				A36250011B1E256200029C36 /* PrintScreen.png */,
 				A3624FF21B1DA22F00029C36 /* libsqlite3.dylib */,
 				A3624FF91B1E1ADC00029C36 /* Database */,
 				A3624FC81B1DA20D00029C36 /* SQLite3Demo */,
@@ -228,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A3624FD81B1DA20D00029C36 /* Main.storyboard in Resources */,
+				A36250021B1E256200029C36 /* PrintScreen.png in Resources */,
 				A3624FDD1B1DA20D00029C36 /* LaunchScreen.xib in Resources */,
 				A3624FDA1B1DA20D00029C36 /* Images.xcassets in Resources */,
 				A3624FFE1B1E1ADC00029C36 /* sampledb.sqlite in Resources */,

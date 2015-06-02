@@ -12,7 +12,7 @@
 @interface MasterViewController : UITableViewController
 
 @property (nonatomic, strong) DBManager *dbManager;
-@property (nonatomic, strong) NSArray *arrPeopleInfo;
+@property (nonatomic, strong) NSMutableArray *arrPeopleInfo;
 
 -(void)loadData;
 

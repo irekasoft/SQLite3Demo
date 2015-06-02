@@ -49,7 +49,8 @@
     if (self.arrPeopleInfo != nil) {
         self.arrPeopleInfo = nil;
     }
-    self.arrPeopleInfo = [[NSArray alloc] initWithArray:[self.dbManager loadDataFromDB:query]];
+    self.arrPeopleInfo = [NSMutableArray array];
+    self.arrPeopleInfo = [NSMutableArray arrayWithArray:[self.dbManager loadDataFromDB:query]];
     
     // Reload the table view.
     [self.tableView reloadData];
@@ -107,12 +108,16 @@
 #pragma mark - Segues
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+//    [self loadData];
+    
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        
-        [[segue destinationViewController] setDetailItem:self.arrPeopleInfo[indexPath.row]];
+        NSLog(@"prepareForSegue %d %@",indexPath.row,self.arrPeopleInfo[indexPath.row]);
         [[segue destinationViewController] setDbManager:self.dbManager];
+        [[segue destinationViewController] setDetailItem:self.arrPeopleInfo[indexPath.row]];
+
         
     }
 }
@@ -152,6 +157,8 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    NSLog(@"%d",indexPath.row);
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         // Delete the selected record.
         // Find the record ID.
@@ -159,13 +166,20 @@
         
         // Prepare the query.
         NSString *query = [NSString stringWithFormat:@"delete from peopleInfo where peopleInfoID=%d", recordIDToDelete];
-        
         // Execute the query.
         [self.dbManager executeQuery:query];
         
-        // Reload the table view.
-        [self loadData];
+        
+        [self.arrPeopleInfo removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        
+
     }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 50;
 }
 
 @end

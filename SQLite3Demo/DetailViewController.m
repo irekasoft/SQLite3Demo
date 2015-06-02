@@ -26,6 +26,7 @@
         NSInteger indexOfLastname = [self.dbManager.arrColumnNames indexOfObject:@"lastname"];
         NSInteger indexOfAge = [self.dbManager.arrColumnNames indexOfObject:@"age"];
    
+        NSLog(@"configure view %ld %ld %ld", indexOfFirstname, indexOfLastname, indexOfAge);
         
         self.tf_firstName.text = self.detailItem[indexOfFirstname];
         self.tf_secondName.text = self.detailItem[indexOfLastname];

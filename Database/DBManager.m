@@ -69,6 +69,13 @@
     [self runQuery:[query UTF8String] isQueryExecutable:YES];
 }
 
+- (NSMutableArray *)arrColumnNames{
+    if (_arrColumnNames == nil) {
+        _arrColumnNames = [[NSMutableArray alloc] init];
+    }
+    return _arrColumnNames;
+}
+
 - (void)runQuery:(const char *)query isQueryExecutable:(BOOL)queryExecutable{
 
     // Create a sqlite object.
@@ -84,13 +91,7 @@
     }
     self.arrResults = [[NSMutableArray alloc] init];
     
-    // Initialize the column names array.
-    if (self.arrColumnNames != nil) {
-        [self.arrColumnNames removeAllObjects];
-        self.arrColumnNames = nil;
-    }
-    self.arrColumnNames = [[NSMutableArray alloc] init];
-    
+
     
     // Open the database.
     BOOL openDatabaseResult = sqlite3_open([databasePath UTF8String], &sqlite3Database);
@@ -151,6 +152,8 @@
                     
                     // Keep the last inserted row ID.
                     self.lastInsertedRowID = sqlite3_last_insert_rowid(sqlite3Database);
+                    
+                    
                 }
                 else {
                     // If could not execute the query show the error message on the debugger.
@@ -167,6 +170,8 @@
         sqlite3_finalize(compiledStatement);
         
     }
+    
+    NSLog(@"check arrColumnNames %@",self.arrColumnNames);
     
     // Close the database.
     sqlite3_close(sqlite3Database);

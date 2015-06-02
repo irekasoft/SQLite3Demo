@@ -16,19 +16,21 @@
 
 #pragma mark - Managing the detail item
 
-- (void)setDetailItem:(id)newDetailItem {
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
-            
-        // Update the view.
-        [self configureView];
-    }
-}
+
 
 - (void)configureView {
     // Update the user interface for the detail item.
     if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+        
+        NSInteger indexOfFirstname = [self.dbManager.arrColumnNames indexOfObject:@"firstname"];
+        NSInteger indexOfLastname = [self.dbManager.arrColumnNames indexOfObject:@"lastname"];
+        NSInteger indexOfAge = [self.dbManager.arrColumnNames indexOfObject:@"age"];
+   
+        
+        self.tf_firstName.text = self.detailItem[indexOfFirstname];
+        self.tf_secondName.text = self.detailItem[indexOfLastname];
+        self.tf_age.text = self.detailItem[indexOfAge];
+        
     }
 }
 
@@ -41,6 +43,25 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+- (IBAction)update:(id)sender {
+    
+    NSString *query = [NSString stringWithFormat:@"update peopleInfo set firstname='%@', lastname='%@', age=%d where peopleInfoID=%d", self.tf_firstName.text, self.tf_secondName.text, self.tf_age.text.intValue, [self.detailItem[0] intValue]];
+    
+
+    // Execute the query.
+    [self.dbManager executeQuery:query];
+
+    // If the query was successfully executed then pop the view controller.
+    if (self.dbManager.affectedRows != 0) {
+        NSLog(@"Query was executed successfully. Affected rows = %d", self.dbManager.affectedRows);
+        
+      
+    }
+    else{
+        NSLog(@"Could not execute the query.");
+    }
+
 }
 
 @end

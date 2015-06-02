@@ -13,8 +13,8 @@
 
 @property (nonatomic, strong) NSString *documentsDirectory;
 @property (nonatomic, strong) NSString *databaseFilename;
--(void)copyDatabaseIntoDocumentsDirectory;
 
+-(void)copyDatabaseIntoDocumentsDirectory;
 
 @end
 
@@ -37,6 +37,7 @@
 }
 
 -(void)copyDatabaseIntoDocumentsDirectory{
+    
     // Check if the database file exists in the documents directory.
     NSString *destinationPath = [self.documentsDirectory stringByAppendingPathComponent:self.databaseFilename];
     
@@ -50,13 +51,11 @@
         if (error != nil) {
             NSLog(@"%@", [error localizedDescription]);
         }
-        
-        
-    
+       
     }
 }
 
--(NSArray *)loadDataFromDB:(NSString *)query{
+- (NSArray *)loadDataFromDB:(NSString *)query{
     // Run the query and indicate that is not executable.
     // The query string is converted to a char* object.
     [self runQuery:[query UTF8String] isQueryExecutable:NO];
@@ -65,12 +64,13 @@
     return (NSArray *)self.arrResults;
 }
 
--(void)executeQuery:(NSString *)query{
+- (void)executeQuery:(NSString *)query{
     // Run the query and indicate that is executable.
     [self runQuery:[query UTF8String] isQueryExecutable:YES];
 }
 
--(void)runQuery:(const char *)query isQueryExecutable:(BOOL)queryExecutable{
+- (void)runQuery:(const char *)query isQueryExecutable:(BOOL)queryExecutable{
+
     // Create a sqlite object.
     sqlite3 *sqlite3Database;
     
@@ -144,7 +144,7 @@
                 // This is the case of an executable query (insert, update, ...).
                 
                 // Execute the query.
-                BOOL executeQueryResults = sqlite3_step(compiledStatement);
+                int executeQueryResults = sqlite3_step(compiledStatement);
                 if (executeQueryResults == SQLITE_DONE) {
                     // Keep the affected rows.
                     self.affectedRows = sqlite3_changes(sqlite3Database);

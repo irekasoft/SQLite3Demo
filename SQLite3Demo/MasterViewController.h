@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DBManager.h"
 
 @interface MasterViewController : UITableViewController
 
+@property (nonatomic, strong) DBManager *dbManager;
+@property (nonatomic, strong) NSArray *arrPeopleInfo;
+
+-(void)loadData;
 
 @end
 

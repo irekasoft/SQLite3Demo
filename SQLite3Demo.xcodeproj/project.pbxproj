@@ -15,6 +15,10 @@
 		A3624FDA1B1DA20D00029C36 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3624FD91B1DA20D00029C36 /* Images.xcassets */; };
 		A3624FDD1B1DA20D00029C36 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A3624FDB1B1DA20D00029C36 /* LaunchScreen.xib */; };
 		A3624FE91B1DA20D00029C36 /* SQLite3DemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A3624FE81B1DA20D00029C36 /* SQLite3DemoTests.m */; };
+		A3624FF31B1DA22F00029C36 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A3624FF21B1DA22F00029C36 /* libsqlite3.dylib */; };
+		A3624FFD1B1E1ADC00029C36 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A3624FFB1B1E1ADC00029C36 /* DBManager.m */; };
+		A3624FFE1B1E1ADC00029C36 /* sampledb.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = A3624FFC1B1E1ADC00029C36 /* sampledb.sqlite */; };
+		A36250001B1E249000029C36 /* ReadMe.md in Sources */ = {isa = PBXBuildFile; fileRef = A3624FFF1B1E249000029C36 /* ReadMe.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,11 @@
 		A3624FE21B1DA20D00029C36 /* SQLite3DemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SQLite3DemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3624FE71B1DA20D00029C36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3624FE81B1DA20D00029C36 /* SQLite3DemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SQLite3DemoTests.m; sourceTree = "<group>"; };
+		A3624FF21B1DA22F00029C36 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		A3624FFA1B1E1ADC00029C36 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
+		A3624FFB1B1E1ADC00029C36 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
+		A3624FFC1B1E1ADC00029C36 /* sampledb.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = sampledb.sqlite; sourceTree = "<group>"; };
+		A3624FFF1B1E249000029C36 /* ReadMe.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = ReadMe.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3624FF31B1DA22F00029C36 /* libsqlite3.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +76,9 @@
 		A3624FBD1B1DA20D00029C36 = {
 			isa = PBXGroup;
 			children = (
+				A3624FFF1B1E249000029C36 /* ReadMe.md */,
+				A3624FF21B1DA22F00029C36 /* libsqlite3.dylib */,
+				A3624FF91B1E1ADC00029C36 /* Database */,
 				A3624FC81B1DA20D00029C36 /* SQLite3Demo */,
 				A3624FE51B1DA20D00029C36 /* SQLite3DemoTests */,
 				A3624FC71B1DA20D00029C36 /* Products */,
@@ -122,6 +135,16 @@
 				A3624FE71B1DA20D00029C36 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A3624FF91B1E1ADC00029C36 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				A3624FFA1B1E1ADC00029C36 /* DBManager.h */,
+				A3624FFB1B1E1ADC00029C36 /* DBManager.m */,
+				A3624FFC1B1E1ADC00029C36 /* sampledb.sqlite */,
+			);
+			path = Database;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +230,7 @@
 				A3624FD81B1DA20D00029C36 /* Main.storyboard in Resources */,
 				A3624FDD1B1DA20D00029C36 /* LaunchScreen.xib in Resources */,
 				A3624FDA1B1DA20D00029C36 /* Images.xcassets in Resources */,
+				A3624FFE1B1E1ADC00029C36 /* sampledb.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,8 +250,10 @@
 			files = (
 				A3624FCF1B1DA20D00029C36 /* AppDelegate.m in Sources */,
 				A3624FD21B1DA20D00029C36 /* MasterViewController.m in Sources */,
+				A36250001B1E249000029C36 /* ReadMe.md in Sources */,
 				A3624FCC1B1DA20D00029C36 /* main.m in Sources */,
 				A3624FD51B1DA20D00029C36 /* DetailViewController.m in Sources */,
+				A3624FFD1B1E1ADC00029C36 /* DBManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,6 +380,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SQLite3Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -364,6 +391,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SQLite3Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -422,6 +450,7 @@
 				A3624FEE1B1DA20D00029C36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A3624FEF1B1DA20D00029C36 /* Build configuration list for PBXNativeTarget "SQLite3DemoTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +459,7 @@
 				A3624FF11B1DA20D00029C36 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

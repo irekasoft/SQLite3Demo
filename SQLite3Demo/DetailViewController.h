@@ -7,11 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DBManager.h"
 
 @interface DetailViewController : UIViewController
 
-@property (strong, nonatomic) id detailItem;
-@property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
+@property (strong, nonatomic) NSArray *detailItem;
+
+@property (weak, nonatomic) IBOutlet UITextField *tf_firstName;
+@property (weak, nonatomic) IBOutlet UITextField *tf_secondName;
+@property (weak, nonatomic) IBOutlet UITextField *tf_age;
+
+
+
+@property (nonatomic, strong) DBManager *dbManager;
+
 
 @end
 
